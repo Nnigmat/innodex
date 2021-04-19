@@ -1,0 +1,11 @@
+.BuyPage {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.BuyPage-Title {
+  background-color: var(--color-project);
+  padding: 10px;
+  width: 100%;
+}
