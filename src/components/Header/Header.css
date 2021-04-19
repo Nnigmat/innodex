@@ -1,0 +1,16 @@
+.Header-Logo {
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.Header-Logo-Icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 6px;
+}
+
+.Link.YandexHeader-NavLink_active {
+  color: var(--header-nav-link-color-active);
+}
