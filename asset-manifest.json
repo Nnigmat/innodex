@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/innodex/static/css/main.cad293de.chunk.css",
-    "main.js": "/innodex/static/js/main.fc8b8f3a.chunk.js",
-    "main.js.map": "/innodex/static/js/main.fc8b8f3a.chunk.js.map",
-    "runtime-main.js": "/innodex/static/js/runtime-main.29c816cd.js",
-    "runtime-main.js.map": "/innodex/static/js/runtime-main.29c816cd.js.map",
+    "main.css": "/innodex/static/css/main.e1db0156.chunk.css",
+    "main.js": "/innodex/static/js/main.508800dc.chunk.js",
+    "main.js.map": "/innodex/static/js/main.508800dc.chunk.js.map",
+    "runtime-main.js": "/innodex/static/js/runtime-main.0c247433.js",
+    "runtime-main.js.map": "/innodex/static/js/runtime-main.0c247433.js.map",
     "static/css/2.b30e7477.chunk.css": "/innodex/static/css/2.b30e7477.chunk.css",
-    "static/js/2.11a792f0.chunk.js": "/innodex/static/js/2.11a792f0.chunk.js",
-    "static/js/2.11a792f0.chunk.js.map": "/innodex/static/js/2.11a792f0.chunk.js.map",
-    "static/js/3.4d2e2bf0.chunk.js": "/innodex/static/js/3.4d2e2bf0.chunk.js",
-    "static/js/3.4d2e2bf0.chunk.js.map": "/innodex/static/js/3.4d2e2bf0.chunk.js.map",
+    "static/js/2.b1c435d9.chunk.js": "/innodex/static/js/2.b1c435d9.chunk.js",
+    "static/js/2.b1c435d9.chunk.js.map": "/innodex/static/js/2.b1c435d9.chunk.js.map",
+    "static/js/3.4a4951b1.chunk.js": "/innodex/static/js/3.4a4951b1.chunk.js",
+    "static/js/3.4a4951b1.chunk.js.map": "/innodex/static/js/3.4a4951b1.chunk.js.map",
     "index.html": "/innodex/index.html",
     "static/css/2.b30e7477.chunk.css.map": "/innodex/static/css/2.b30e7477.chunk.css.map",
-    "static/css/main.cad293de.chunk.css.map": "/innodex/static/css/main.cad293de.chunk.css.map",
-    "static/js/2.11a792f0.chunk.js.LICENSE.txt": "/innodex/static/js/2.11a792f0.chunk.js.LICENSE.txt",
+    "static/css/main.e1db0156.chunk.css.map": "/innodex/static/css/main.e1db0156.chunk.css.map",
+    "static/js/2.b1c435d9.chunk.js.LICENSE.txt": "/innodex/static/js/2.b1c435d9.chunk.js.LICENSE.txt",
     "static/media/logo.ccd9d985.svg": "/innodex/static/media/logo.ccd9d985.svg",
     "static/media/Mirror-Icon.css": "/innodex/static/media/mirror.7f4cc76c.svg",
     "static/media/News-Icon.css": "/innodex/static/media/news.adb5fca7.svg",
@@ -22,10 +22,10 @@
     "static/media/Header-Logo.css": "/innodex/static/media/yandex-ru.1e542509.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.29c816cd.js",
+    "static/js/runtime-main.0c247433.js",
     "static/css/2.b30e7477.chunk.css",
-    "static/js/2.11a792f0.chunk.js",
-    "static/css/main.cad293de.chunk.css",
-    "static/js/main.fc8b8f3a.chunk.js"
+    "static/js/2.b1c435d9.chunk.js",
+    "static/css/main.e1db0156.chunk.css",
+    "static/js/main.508800dc.chunk.js"
   ]
 }
