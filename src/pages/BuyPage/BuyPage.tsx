@@ -1,6 +1,7 @@
 import { Text } from '@yandex/ui/Text/desktop/bundle';
 
 import { List, ListItem, ListItemProps } from '../../components/List';
+import { useTitle } from '../../hooks/useTitle';
 
 import './BuyPage.css';
 
@@ -11,6 +12,8 @@ const offers = [
 ] as ListItemProps[];
 
 export function BuyPage() {
+  useTitle('Buy - InnoDEX');
+
   return (
     <div className="BuyPage">
       <Text typography="display-s" weight="light" className="BuyPage-Title">
