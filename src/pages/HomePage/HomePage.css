@@ -1,11 +1,11 @@
-.HomePage {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 30px;
-}
-
 .HomePage-Title {
   background-color: var(--color-project);
   padding: 10px;
   width: 100%;
+}
+
+@media (max-width: 700px) {
+  .HomePage-Title {
+    padding: 1px;
+  }
 }

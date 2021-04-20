@@ -11,7 +11,7 @@ export function ListItem({ seller, price, limits }: ListItemProps) {
   return (
     <div className="ListItem">
       <div className="ListItem-Seller">
-        <Text>{seller}</Text>
+        <Text overflow="ellipsis">{seller}</Text>
       </div>
       <div className="ListItem-Price">
         <Text>{price}</Text>

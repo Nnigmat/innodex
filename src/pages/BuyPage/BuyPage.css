@@ -1,9 +1,3 @@
-.BuyPage {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 30px;
-}
-
 .BuyPage-Title {
   background-color: var(--color-project);
   padding: 10px;
@@ -13,4 +7,10 @@
 .BuyPage-NoOffers {
   padding: 15px;
   padding-top: 20px;
+}
+
+@media (max-width: 700px) {
+  .BuyPage-Title {
+    padding: 1px;
+  }
 }
