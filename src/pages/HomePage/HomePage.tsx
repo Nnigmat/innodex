@@ -1,8 +1,12 @@
 import { Text } from '@yandex/ui/Text/desktop/bundle';
 
+import { useTitle } from '../../hooks/useTitle';
+
 import './HomePage.css';
 
 export function HomePage() {
+  useTitle('Home - InnoDEX');
+
   return (
     <div className="SellPage">
       <Text typography="display-s" weight="light" className="BuyPage-Title">
