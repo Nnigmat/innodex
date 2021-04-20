@@ -13,4 +13,13 @@
 
 .App .Content {
   flex: 1;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+@media (max-width: 700px) {
+  .App .Content {
+    width: 100%;
+  }
 }

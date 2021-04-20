@@ -19,13 +19,14 @@
 .ListItem [class^='ListItem-']:not(.ListItem-Action),
 .ListHeader [class^='ListHeader-']:not(.ListHeader-Action) {
   flex-basis: 29%;
-  flex-grow: 1;
+  text-align: start;
+  min-width: 60px;
 }
 
 .ListItem-Action,
 .ListHeader-Action {
   text-align: end;
-  flex-grow: 0;
+  flex-grow: 1;
   flex-basis: 10%;
 }
 
