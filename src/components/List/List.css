@@ -45,3 +45,8 @@
   height: 15px;
   margin-right: 10px;
 }
+
+.ListItem:hover {
+  background-color: var(--color-bg-hover);
+  cursor: pointer;
+}
