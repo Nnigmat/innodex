@@ -5,7 +5,8 @@
   border-radius: 10px;
 }
 
-.ListItem {
+.ListItem,
+.ListHeader {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -15,7 +16,31 @@
   border-top: 1px solid lightgray;
 }
 
-.ListItem [class^='ListItem-'] {
-  flex-basis: 25%;
+.ListItem [class^='ListItem-']:not(.ListItem-Action),
+.ListHeader [class^='ListHeader-']:not(.ListHeader-Action) {
+  flex-basis: 29%;
   flex-grow: 1;
+}
+
+.ListItem-Action,
+.ListHeader-Action {
+  text-align: end;
+  flex-grow: 0;
+  flex-basis: 10%;
+}
+
+.ListHeader {
+  color: var(--color-typo-promo);
+  font-weight: bold;
+  /* margin-bottom: 10px; */
+}
+
+.ListHeader-Seller {
+  display: flex;
+}
+
+[class^='ListHeader-'] img {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
 }
