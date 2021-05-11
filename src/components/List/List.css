@@ -19,7 +19,7 @@
 .ListItem [class^='ListItem-']:not(.ListItem-Action),
 .ListHeader [class^='ListHeader-']:not(.ListHeader-Action) {
   flex-basis: 29%;
-  text-align: start;
+  text-align: center;
   min-width: 60px;
 }
 
@@ -49,4 +49,8 @@
 .ListItem:hover {
   background-color: var(--color-bg-hover);
   cursor: pointer;
+}
+
+.ListItem-Coin:first-letter {
+  color: red;
 }

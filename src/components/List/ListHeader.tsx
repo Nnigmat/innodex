@@ -19,6 +19,7 @@ export function ListHeader() {
       </div>
       <div className="ListHeader-Amount">
         <img src={limitSrc} alt="Amount" />
+        Amount
       </div>
       <div className="ListHeader-Action"></div>
     </div>
