@@ -795,7 +795,11 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
+<<<<<<< HEAD
                           "referencedDeclaration": 839,
+=======
+                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                           "src": "628:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -924,7 +928,11 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
+<<<<<<< HEAD
                               "referencedDeclaration": 839,
+=======
+                              "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                               "src": "771:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -988,8 +996,13 @@
                       "id": 297,
                       "name": "require",
                       "nodeType": "Identifier",
+<<<<<<< HEAD
                       "overloadedDeclarations": [842, 843],
                       "referencedDeclaration": 842,
+=======
+                      "overloadedDeclarations": [763, 764],
+                      "referencedDeclaration": 763,
+>>>>>>> 71a582a... рабочее гавно
                       "src": "753:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1046,7 +1059,11 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
+<<<<<<< HEAD
                           "referencedDeclaration": 839,
+=======
+                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                           "src": "813:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1188,7 +1205,11 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
+<<<<<<< HEAD
                           "referencedDeclaration": 839,
+=======
+                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                           "src": "892:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1452,7 +1473,11 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
+<<<<<<< HEAD
                             "referencedDeclaration": 839,
+=======
+                            "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                             "src": "1051:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1546,7 +1571,11 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
+<<<<<<< HEAD
                           "referencedDeclaration": 839,
+=======
+                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                           "src": "1105:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1863,8 +1892,13 @@
                       "id": 368,
                       "name": "require",
                       "nodeType": "Identifier",
+<<<<<<< HEAD
                       "overloadedDeclarations": [842, 843],
                       "referencedDeclaration": 842,
+=======
+                      "overloadedDeclarations": [763, 764],
+                      "referencedDeclaration": 763,
+>>>>>>> 71a582a... рабочее гавно
                       "src": "1274:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1970,7 +2004,11 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
+<<<<<<< HEAD
                               "referencedDeclaration": 839,
+=======
+                              "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                               "src": "1354:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2019,8 +2057,13 @@
                       "id": 376,
                       "name": "require",
                       "nodeType": "Identifier",
+<<<<<<< HEAD
                       "overloadedDeclarations": [842, 843],
                       "referencedDeclaration": 842,
+=======
+                      "overloadedDeclarations": [763, 764],
+                      "referencedDeclaration": 763,
+>>>>>>> 71a582a... рабочее гавно
                       "src": "1319:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2250,7 +2293,11 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
+<<<<<<< HEAD
                           "referencedDeclaration": 839,
+=======
+                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                           "src": "1463:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3155,7 +3202,11 @@
                                     "attributes": {
                                       "argumentTypes": null,
                                       "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                       "referencedDeclaration": 839,
+=======
+                                      "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -3337,8 +3388,13 @@
                                   "typeString": "bool"
                                 }
                               ],
+<<<<<<< HEAD
                               "overloadedDeclarations": [842, 843],
                               "referencedDeclaration": 842,
+=======
+                              "overloadedDeclarations": [763, 764],
+                              "referencedDeclaration": 763,
+>>>>>>> 71a582a... рабочее гавно
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -3399,7 +3455,11 @@
                                         "attributes": {
                                           "argumentTypes": null,
                                           "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                           "referencedDeclaration": 839,
+=======
+                                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -3495,7 +3555,11 @@
                                     "attributes": {
                                       "argumentTypes": null,
                                       "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                       "referencedDeclaration": 839,
+=======
+                                      "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -3665,7 +3729,11 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                   "referencedDeclaration": 839,
+=======
+                                  "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -3919,7 +3987,11 @@
                                         "attributes": {
                                           "argumentTypes": null,
                                           "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                           "referencedDeclaration": 839,
+=======
+                                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -4032,7 +4104,11 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                   "referencedDeclaration": 839,
+=======
+                                  "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -4275,8 +4351,13 @@
                                   "typeString": "bool"
                                 }
                               ],
+<<<<<<< HEAD
                               "overloadedDeclarations": [842, 843],
                               "referencedDeclaration": 842,
+=======
+                              "overloadedDeclarations": [763, 764],
+                              "referencedDeclaration": 763,
+>>>>>>> 71a582a... рабочее гавно
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -4388,8 +4469,13 @@
                                   "typeString": "bool"
                                 }
                               ],
+<<<<<<< HEAD
                               "overloadedDeclarations": [842, 843],
                               "referencedDeclaration": 842,
+=======
+                              "overloadedDeclarations": [763, 764],
+                              "referencedDeclaration": 763,
+>>>>>>> 71a582a... рабочее гавно
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -4489,7 +4575,11 @@
                                         "attributes": {
                                           "argumentTypes": null,
                                           "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                           "referencedDeclaration": 839,
+=======
+                                          "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -4748,7 +4838,11 @@
                                     "attributes": {
                                       "argumentTypes": null,
                                       "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                       "referencedDeclaration": 839,
+=======
+                                      "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -4981,6 +5075,7 @@
       },
       "links": {},
 <<<<<<< HEAD
+<<<<<<< HEAD
       "address": "0x0f5047B9AF6A830aAAB6a907f674448120A83899",
       "transactionHash": "0x5e229193ca6a4ed6f84781d791d2756c457fabc2a6c8ce93aec75f07e20477c4"
     }
@@ -4995,6 +5090,14 @@
   "schemaVersion": "3.2.3",
   "updatedAt": "2021-05-11T18:01:13.663Z",
 >>>>>>> d4a889d... add presentation and update wiki
+=======
+      "address": "0x240D239C97C8F31bCEc0F7aCA99c0E308A4603eD",
+      "transactionHash": "0x43519b2edfc8ee9a5a793a687f52f0abc9b2bb4ab8cbb8ba80d811f142ffd423"
+    }
+  },
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-11T18:50:07.124Z",
+>>>>>>> 71a582a... рабочее гавно
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

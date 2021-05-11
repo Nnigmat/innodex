@@ -91,8 +91,7 @@ export function Header({ aCoinBalance, nCoinBalance, account, orderBook }) {
                   values.orderType,
                   values.exRate,
                   web3.utils.toWei(String(values.amount), 'ether'),
-                  values.coin,
-                  values.coin === Coin.A ? Coin.N : Coin.A
+                  values.coin
                 )
                 .send({ from: account });
               await upload();

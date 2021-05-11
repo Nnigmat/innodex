@@ -190,7 +190,11 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
+<<<<<<< HEAD
                         "referencedDeclaration": 839,
+=======
+                        "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                         "src": "158:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -274,7 +278,11 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
+<<<<<<< HEAD
                         "referencedDeclaration": 839,
+=======
+                        "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                         "src": "209:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -866,7 +874,11 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                   "referencedDeclaration": 839,
+=======
+                                  "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -953,7 +965,11 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "overloadedDeclarations": [null],
+<<<<<<< HEAD
                                   "referencedDeclaration": 839,
+=======
+                                  "referencedDeclaration": 760,
+>>>>>>> 71a582a... рабочее гавно
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1404,6 +1420,7 @@
       "events": {},
       "links": {},
 <<<<<<< HEAD
+<<<<<<< HEAD
       "address": "0xcfF9701B6EE8F6Abe04d2c7c405C803Be8846FA7",
       "transactionHash": "0x5fff580e672d444939b230a011edca07abbc5239f45a4d71b04c13298e19ed5f"
     }
@@ -1418,6 +1435,14 @@
   "schemaVersion": "3.2.3",
   "updatedAt": "2021-05-11T18:01:13.670Z",
 >>>>>>> d4a889d... add presentation and update wiki
+=======
+      "address": "0x0839CFE602ba583Db3ba974F64b256fcAeE835D3",
+      "transactionHash": "0x32467d9ae1727ed7f08199c2fb91a326e5ddf7d34fbe024e524580ed7f555731"
+    }
+  },
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-05-11T18:50:07.134Z",
+>>>>>>> 71a582a... рабочее гавно
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
