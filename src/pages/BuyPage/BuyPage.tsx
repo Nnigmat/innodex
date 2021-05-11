@@ -7,8 +7,9 @@ import { useTitle } from '../../hooks/useTitle';
 import './BuyPage.css';
 
 export function BuyPage(props) {
-  const { orders } = props;
+  const { orders, completeOrder, userId } = props;
 
+  console.log(orders.filter((it) => it.orderType == 1));
   useTitle('Buy - InnoDEX');
 
   return (
@@ -25,7 +26,11 @@ export function BuyPage(props) {
           {orders
             .filter((it) => it.orderType == 1)
             .map((item) => (
-              <ListItem {...item} />
+              <ListItem
+                {...item}
+                completeOrder={completeOrder}
+                userId={userId}
+              />
             ))}
         </List>
       ) : (
