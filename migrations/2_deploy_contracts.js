@@ -17,4 +17,7 @@ module.exports = async function (deployer, network, accounts) {
 
   await deployer.deploy(OrderBook, acoin.address, ncoin.address);
   const orderBook = await OrderBook.deployed();
+  
+  await acoin.transfer(orderBook.address, '500000000000000000000000');
+  await ncoin.transfer(orderBook.address, '500000000000000000000000');
 };
