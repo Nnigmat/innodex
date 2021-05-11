@@ -6,18 +6,8 @@ import { useTitle } from '../../hooks/useTitle';
 
 import './BuyPage.css';
 
-const offers = [
-  { seller: 'Nikita Nigmatullin', price: 5000, limits: [1000, 3000] },
-  { seller: 'Amir Subaev', price: 3000, limits: [4000, 10000] },
-  { seller: 'Salavat Dinmukhametov', price: 4000, limits: [2000, 3000] },
-] as ListItemProps[];
-
 export function BuyPage(props) {
   const { orders } = props;
-
-  useEffect(() => {
-    console.log(orders);
-  }, [orders]);
 
   useTitle('Buy - InnoDEX');
 
@@ -30,11 +20,13 @@ export function BuyPage(props) {
       <br />
       <br />
 
-      {offers.length !== 0 ? (
+      {orders.length !== 0 ? (
         <List>
-          {offers.map((item) => (
-            <ListItem {...item} />
-          ))}
+          {orders
+            .filter((it) => it.orderType == 1)
+            .map((item) => (
+              <ListItem {...item} />
+            ))}
         </List>
       ) : (
         <div className="BuyPage-NoOffers">

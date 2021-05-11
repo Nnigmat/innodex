@@ -73,7 +73,6 @@ export function Header(props) {
           }}
           onSubmit={async (values: any) => {
             if (orderBook) {
-              console.log(orderBook.methods, orderBook);
               await orderBook.methods
                 .addOrder(
                   getRandomInt(10, 10e12),

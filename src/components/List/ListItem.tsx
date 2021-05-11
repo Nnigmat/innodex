@@ -2,22 +2,27 @@ import { Text } from '@yandex/ui/Text';
 import { Button } from '@yandex/ui/Button/desktop/bundle';
 
 export type ListItemProps = {
-  seller: string;
-  price: number;
-  limits: [number, number];
+  owner: string;
+  exchange: number;
+  orderType: number;
+  originalAmount: number;
+  buyerGet: number;
 };
 
-export function ListItem({ seller, price, limits }: ListItemProps) {
+export function ListItem({ owner, exchange, orderType, originalAmount }: any) {
   return (
     <div className="ListItem">
       <div className="ListItem-Seller">
-        <Text overflow="ellipsis">{seller}</Text>
+        <Text overflow="ellipsis">{owner}</Text>
       </div>
-      <div className="ListItem-Price">
-        <Text>{price}</Text>
+      <div className="ListItem-Exchange">
+        <Text>{exchange}</Text>
       </div>
-      <div className="ListItem-Limits">
-        <Text>{`${limits[0]}-${limits[1]}`}</Text>
+      <div className="ListItem-Coin">
+        <Text>{orderType == 1 ? 'N' : 'A'}</Text>
+      </div>
+      <div className="ListItem-Amount">
+        <Text>{originalAmount}</Text>
       </div>
       <div className="ListItem-Action">
         <Button view="action" size="m">
