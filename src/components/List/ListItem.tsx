@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import { Text } from '@yandex/ui/Text';
 import { Button } from '@yandex/ui/Button/desktop/bundle';
 import web3 from 'web3';
+
+import { UploadContext } from '../../context';
 
 export type ListItemProps = {
   owner: string;
@@ -19,8 +22,10 @@ export function ListItem({
   completeOrder,
   userId,
 }: any) {
-  const buyItem = (id, amount) => {
-    completeOrder(id, amount).send({ from: userId });
+  const upload = useContext(UploadContext);
+  const buyItem = async (id, amount) => {
+    await completeOrder(id, amount).send({ from: userId });
+    await upload();
   };
 
   return (

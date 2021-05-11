@@ -1,5 +1,4 @@
 import { Text } from '@yandex/ui/Text/desktop/bundle';
-import { useEffect, useState } from 'react';
 
 import { List, ListItem, ListItemProps } from '../../components/List';
 import { useTitle } from '../../hooks/useTitle';
