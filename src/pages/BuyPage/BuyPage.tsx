@@ -1,4 +1,5 @@
 import { Text } from '@yandex/ui/Text/desktop/bundle';
+import { useEffect, useState } from 'react';
 
 import { List, ListItem, ListItemProps } from '../../components/List';
 import { useTitle } from '../../hooks/useTitle';
@@ -11,7 +12,13 @@ const offers = [
   { seller: 'Salavat Dinmukhametov', price: 4000, limits: [2000, 3000] },
 ] as ListItemProps[];
 
-export function BuyPage() {
+export function BuyPage(props) {
+  const { orders } = props;
+
+  useEffect(() => {
+    console.log(orders);
+  }, [orders]);
+
   useTitle('Buy - InnoDEX');
 
   return (

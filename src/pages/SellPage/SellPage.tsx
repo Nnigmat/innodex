@@ -4,7 +4,7 @@ import { useTitle } from '../../hooks/useTitle';
 
 import './SellPage.css';
 
-export function SellPage() {
+export function SellPage(props) {
   useTitle('Sell - InnoDEX');
 
   return (
