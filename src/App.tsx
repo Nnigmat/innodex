@@ -12,12 +12,22 @@ import { HomePage } from './pages/HomePage';
 
 import Web3 from 'web3';
 
+import ACoin from './abis/ACoin.json';
+import NCoin from './abis/NCoin.json';
+import OrderBook from './abis/OrderBook.json';
+
 import './App.css';
 
 configureRootTheme({ theme });
 
 export const App: FC = () => {
   const [account, setAccount] = useState<string>('');
+  const [ACoinContract, setACoinContract] = useState<any>();
+  const [NCoinContract, setNCoinContract] = useState<any>();
+  const [orderBookContract, setOrderBookContract] = useState<any>();
+  const [ACoinBalance, setACoinBalance] = useState<any>(0);
+  const [NCoinBalance, setNCoinBalance] = useState<any>(0);
+  const [orders, setOrders] = useState<any>();
 
   useEffect(() => {
     loadWeb3();
@@ -43,20 +53,62 @@ export const App: FC = () => {
     const accounts = await web3.eth.getAccounts();
     const networkId = await web3.eth.net.getId();
 
+    const aCoinData = ACoin.networks[networkId];
+    if (ACoin) {
+      let aCoinContract = new web3.eth.Contract(ACoin.abi, aCoinData.address);
+      setACoinContract(aCoinContract);
+      let aCoinBalance = await aCoinContract.methods
+        .balanceOf(accounts[0])
+        .call();
+      setACoinBalance(aCoinBalance.toString());
+    } else {
+      window.alert('ACoin contract not deployed to detected network.');
+    }
+
+    const nCoinData = NCoin.networks[networkId];
+    if (NCoin) {
+      let nCoinContract = new web3.eth.Contract(NCoin.abi, nCoinData.address);
+      setACoinContract(nCoinContract);
+      let nCoinBalance = await nCoinContract.methods
+        .balanceOf(accounts[0])
+        .call();
+      setNCoinBalance(nCoinBalance.toString());
+    } else {
+      window.alert('ACoin contract not deployed to detected network.');
+    }
+
+    const orderBookData = OrderBook.networks[networkId];
+    if (orderBookData) {
+      const orderBookContract = new web3.eth.Contract(
+        OrderBook.abi,
+        orderBookData.address
+      );
+      setOrderBookContract(orderBookContract);
+      const _orders = await orderBookContract.methods.getOrders().call();
+      setOrders(_orders);
+    } else {
+      window.alert('OrderBook contract not deployed to detected network.');
+    }
+
     setAccount(accounts[0]);
   };
 
   return (
     <div className="App">
       <Router>
-        <Header account={account} />
+        <Header
+          account={account}
+          aCoinBalance={ACoinBalance}
+          nCoinBalance={NCoinBalance}
+          orderBook={orderBookContract}
+        />
         <div className="Content">
           <Switch>
             <Route path="/innodex/buy">
-              <BuyPage />
+              <BuyPage orders={orders} />
             </Route>
             <Route path="/innodex/sell">
-              <SellPage />
+              <SellPage orderBook={orderBookContract} />
             </Route>
             <Route path="/innodex" exact>
               <HomePage />
