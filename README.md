@@ -17,5 +17,9 @@ Salavat Dinmukhametov s.dinmuhametov@innopolis.ru
 1. Install Truffle `npm install --g truffle@5.1.39`
 1. Compile contract `truffle compile`
 1. Deploy contract `truffle migrate` or redeploy `truffle migrate --reset`
-1. Install npm dependencies `npm -i`
-1. Run the InnoDex cite `npm start`
+1. Connect to https://nnigmat.github.io/innodex/ or run it locally
+
+```bash
+npm -i
+npm start
+```
