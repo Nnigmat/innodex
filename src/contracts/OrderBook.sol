@@ -1,123 +1,109 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './ACoin.sol';
-import './NCoin.sol';
+import "./ACoin.sol";
+import "./NCoin.sol";
 
 contract OrderBook {
-  ACoin acoin;
-  NCoin ncoin;
-  address owner;
-
-  enum Coin {A, N}
-  enum OrderType {Sell, Buy}
-
-  struct Order {
-    uint256 id;
-    OrderType orderType;
-    uint256 exchange;
-    uint256 amount;
-    uint256 originalAmount;
-    Coin ownerGet;
-    Coin buyerGet;
+    ACoin acoin;
+    NCoin ncoin;
     address owner;
-    bool isClosed;
-  }
 
-  Order[] orders;
+    enum Coin{A, N}
+    enum OrderType {Sell, Buy}
 
-  constructor(ACoin _acoin, NCoin _ncoin) public {
-    acoin = _acoin;
-    ncoin = _ncoin;
-    owner = msg.sender;
-  }
-
-  function orderExist(uint256 _id) external view returns (bool) {
-    for (uint256 i = 0; i < orders.length; i++) {
-      if (orders[i].id == _id) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function getOrder(uint256 _id) external view returns (Order memory) {
-    for (uint256 i = 0; i < orders.length; i++) {
-      if (orders[i].id == _id) {
-        return orders[i];
-      }
+    struct Order {
+        uint256 id;
+        OrderType orderType;
+        uint256 priceOfOne;
+        uint256 amount;
+        uint256 originalAmount;
+        Coin ownerHave;
+        address owner;
+        bool isClosed;
     }
 
-    revert('order id not exist!');
-  }
-
-  function getOrders() external view returns (Order[] memory) {
-    return orders;
-  }
-
-  function addOrder(
-    uint256 _id,
-    OrderType _orderType,
-    uint256 _exchange,
-    uint256 _amount,
-    Coin _ownerGet,
-    Coin _buyerGet
-  ) external payable {
-    require(!this.orderExist(_id), 'order id exist!');
-    Order memory order =
-      Order({
-        id: _id,
-        orderType: _orderType,
-        exchange: _exchange,
-        amount: _amount,
-        originalAmount: _amount,
-        ownerGet: _ownerGet,
-        buyerGet: _buyerGet,
-        owner: msg.sender,
-        isClosed: false
-      });
-    orders.push(order);
-  }
-
-  function completeOrder(uint256 _id, uint256 _amount) external payable {
-    require(this.orderExist(_id), 'order id not exist!');
-
-    Order memory order = this.getOrder(_id);
-    require(!order.isClosed, 'order already closed!');
-    require(order.amount >= _amount, 'not enough coins in order!');
-
-    uint256 price = _amount * order.exchange;
-    uint256 wallet =
-      order.buyerGet == Coin.A
-        ? acoin.balanceOf(msg.sender)
-        : ncoin.balanceOf(msg.sender);
-    require(price <= wallet, 'not enought coins in buyer!');
-
-    order.amount -= _amount;
-    if (order.buyerGet == Coin.A) {
-      acoin.allowance(order.owner, address(this));
-      acoin.transferFrom(order.owner, address(this), _amount);
-      acoin.transfer(msg.sender, _amount);
-
-      ncoin.transferFrom(msg.sender, address(this), price);
-      ncoin.transfer(order.owner, price);
-    } else {
-      ncoin.allowance(order.owner, address(this));
-      ncoin.transferFrom(order.owner, address(this), _amount);
-      ncoin.transfer(msg.sender, _amount);
-
-      acoin.transferFrom(msg.sender, address(this), price);
-      acoin.transfer(order.owner, price);
+    Order[] orders;
+    constructor(ACoin _acoin, NCoin _ncoin) public {
+        acoin = _acoin;
+        ncoin = _ncoin;
+        owner = msg.sender;
     }
 
-    if (order.amount == 0) {
-      this.closeOrder(_id);
+    function orderExist(uint256 _id) external view returns (bool)
+    {
+        for (uint256 i = 0; i < orders.length; i++) {
+            if (orders[i].id == _id) {
+                return true;
+            }
+        }
+        return false;
     }
-  }
 
-  function closeOrder(uint256 _id) external payable {
-    require(this.orderExist(_id), 'order id not exist!');
-    Order memory order = this.getOrder(_id);
-    order.isClosed = true;
-  }
+    function getOrder(uint256 _id) external view returns (Order memory) {
+        for (uint256 i = 0; i < orders.length; i++) {
+            if (orders[i].id == _id) {
+                return orders[i];
+            }
+        }
+
+        revert("order id not exist!");
+    }
+
+    function getOrders() external view returns (Order[] memory) {
+        return orders;
+    }
+
+    function addOrder(uint256 _id, OrderType _orderType, uint256 _priceOfOne, uint256 _amount, Coin _ownerHave) external payable {
+        require(!this.orderExist(_id), "order id exist!");
+        Order memory order =
+            Order({
+                id: _id,
+                orderType: _orderType,
+                priceOfOne: _priceOfOne,
+                amount: _amount,
+                originalAmount: _amount,
+                ownerHave: _ownerHave,
+                owner: msg.sender,
+                isClosed: false
+            });
+        
+        orders.push(order);
+    }
+
+    function completeOrder(uint256 _id, uint256 _amount) external payable {
+        for (uint256 i = 0; i < orders.length; i++) {
+            if (orders[i].id == _id) {
+                Order storage order = orders[i];
+                require(!order.isClosed, "order already closed!");
+                require(order.amount >= _amount, "not enough coins in order!");
+
+                uint256 price = _amount * order.priceOfOne;
+                uint256 wallet = order.ownerHave == Coin.N ? acoin.balanceOf(msg.sender) : ncoin.balanceOf(msg.sender);
+                require(price <= wallet, "not enought coins in buyer!");
+
+                if(order.ownerHave == Coin.A)
+                {
+                    acoin.transfer(msg.sender, _amount);
+            
+                    ncoin.transfer(order.owner, price);
+                }
+                else
+                {
+                    ncoin.transfer(msg.sender, _amount);
+            
+                    acoin.transfer(order.owner, price);
+                }
+        
+                order.amount -= _amount;
+                if(order.amount == 0)
+                {
+                    order.isClosed = true;
+                }
+                return;
+            }
+        }
+
+        revert("order id not exist!");
+    }
 }
