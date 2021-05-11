@@ -1,5 +1,6 @@
 import { Text } from '@yandex/ui/Text';
 import { Button } from '@yandex/ui/Button/desktop/bundle';
+import web3 from 'web3';
 
 export type ListItemProps = {
   owner: string;
@@ -34,10 +35,14 @@ export function ListItem({
         <Text>{orderType === 1 ? 'NCN' : 'ACN'}</Text>
       </div>
       <div className="ListItem-Amount">
-        <Text>{originalAmount}</Text>
+        <Text>{web3.utils.fromWei(originalAmount, 'ether')}</Text>
       </div>
       <div className="ListItem-Action">
-        <Button view="action" size="m" onClick={() => buyItem(id, 1)}>
+        <Button
+          view="action"
+          size="m"
+          onClick={() => buyItem(id, originalAmount)}
+        >
           Buy
         </Button>
       </div>
