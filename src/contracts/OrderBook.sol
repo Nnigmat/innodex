@@ -25,6 +25,7 @@ contract OrderBook {
     }
 
     Order[] orders;
+    Order newOrder;
     constructor(ACoin _acoin, NCoin _ncoin) public {
         acoin = _acoin;
         ncoin = _ncoin;
@@ -57,7 +58,7 @@ contract OrderBook {
 
     function addOrder(uint256 _id, OrderType _orderType, uint256 _exchange, uint256 _amount, Coin _ownerGet, Coin _buyerGet) external payable {
         require(!this.orderExist(_id), "order id exist!");
-        Order memory order =
+        newOrder =
             Order({
                 id: _id,
                 orderType: _orderType,
@@ -69,10 +70,18 @@ contract OrderBook {
                 owner: msg.sender,
                 isClosed: false
             });
-        orders.push(order);
+        if(!this.matchOrders())
+        {
+            orders.push(newOrder);
+        }
+        else
+        {
+            newOrder.isClosed = true;
+        }
+
     }
 
-    function completeOrder(uint256 _id, uint256 _amount) external payable {
+    function completeOrder(uint256 _id, uint256 _amount) external payable returns (bool) {
         require(this.orderExist(_id), "order id not exist!");
 
         Order memory order = this.getOrder(_id);
@@ -99,11 +108,43 @@ contract OrderBook {
         {
             this.closeOrder(_id);
         }
+
+        return true;
     }
 
     function closeOrder(uint256 _id) external payable{
         require(this.orderExist(_id), "order id not exist!");
         Order memory order = this.getOrder(_id);
         order.isClosed = true;
+    }
+
+    function matchOrders() public payable returns(bool) {
+        if(newOrder.isClosed)
+        {
+            return false;
+        }
+
+        for (uint256 i = 0; i < orders.length; i++) {
+            if (!orders[i].isClosed) {
+                if(newOrder.ownerGet == orders[i].buyerGet)
+                {
+                    // found order with lower exchange rate
+                    if(newOrder.exchange >= orders[i].exchange)
+                    {
+                        uint256 minAmount = newOrder.amount > orders[i].amount ? orders[i].amount : newOrder.amount;
+                        if(this.completeOrder(orders[i].id, minAmount))
+                        {
+                            newOrder.amount -= minAmount;
+                        }
+                        if(newOrder.amount == 0)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return newOrder.amount == 0;
     }
 }
