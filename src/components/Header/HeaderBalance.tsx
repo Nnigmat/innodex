@@ -13,16 +13,21 @@ export function HeaderBalance({ aCoinBalance, nCoinBalance, account }) {
   const aCoinEther = web3.utils.fromWei(aCoinBalance, 'ether');
   const nCoinEther = web3.utils.fromWei(nCoinBalance, 'ether');
 
+  const aCoinFormat =
+    aCoinEther.split('.')[0] + '.' + aCoinEther.split('.')[1]?.substr(0, 5);
+  const nCoinFormat =
+    nCoinEther.split('.')[0] + '.' + nCoinEther.split('.')[1]?.substr(0, 5);
+
   const handleClose = () => setVisible(false);
   const handleClick = () => setVisible(true);
 
   return (
     <div className="HeaderBalance" ref={scopeRef}>
       <Text as="div" className="HeaderBalance-Text">
-        ACN&nbsp;Balance:&nbsp;{aCoinEther}
+        ACN&nbsp;Balance:&nbsp;{aCoinFormat}
       </Text>
       <Text as="div" className="HeaderBalance-Text">
-        NCN&nbsp;Balance:&nbsp;{nCoinEther}
+        NCN&nbsp;Balance:&nbsp;{nCoinFormat}
       </Text>
       <Button
         view="action"
@@ -30,9 +35,9 @@ export function HeaderBalance({ aCoinBalance, nCoinBalance, account }) {
         onClick={handleClick}
         className="Button_Gradient"
       >
-        {account.substring(0, 8) +
-          '...' +
-          account.substring(account.length - 8, account.length)}
+        {account.substring(0, 6) +
+          '..' +
+          account.substring(account.length - 4, account.length)}
       </Button>
       <Modal
         theme="normal"
