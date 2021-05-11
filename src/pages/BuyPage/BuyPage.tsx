@@ -9,6 +9,7 @@ import './BuyPage.css';
 
 export function BuyPage({ orders, completeOrder, userId }) {
   useTitle('Buy - InnoDEX');
+  console.log(orders);
 
   return (
     <div className="BuyPage">
@@ -20,7 +21,7 @@ export function BuyPage({ orders, completeOrder, userId }) {
       <br />
 
       {orders.length !== 0 ? (
-        <List>
+        <List isBuy={true}>
           {orders
             .filter((it) => it.orderType == 1)
             .map((item) => (
@@ -28,6 +29,7 @@ export function BuyPage({ orders, completeOrder, userId }) {
                 {...item}
                 completeOrder={completeOrder}
                 userId={userId}
+                isBuy
               />
             ))}
         </List>

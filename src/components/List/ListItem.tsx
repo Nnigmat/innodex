@@ -15,12 +15,13 @@ export type ListItemProps = {
 
 export function ListItem({
   owner,
-  exchange,
+  priceOfOne: exchange,
   orderType,
   originalAmount,
   id,
   completeOrder,
   userId,
+  isBuy,
 }: any) {
   const upload = useContext(UploadContext);
   const buyItem = async (id, amount) => {
@@ -48,7 +49,7 @@ export function ListItem({
           size="m"
           onClick={() => buyItem(id, originalAmount)}
         >
-          Buy
+          {isBuy ? 'Buy' : 'Sell'}
         </Button>
       </div>
     </div>
