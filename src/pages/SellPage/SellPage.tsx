@@ -11,7 +11,7 @@ export function SellPage({ orders, completeOrder, userId }) {
   return (
     <div className="SellPage">
       <Text typography="display-s" weight="light" className="SellPage-Title">
-        Buy cryptocurrencies online
+        Sell cryptocurrencies online
       </Text>
 
       <br />

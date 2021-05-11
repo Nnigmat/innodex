@@ -2,12 +2,12 @@ import sellerSrc from '../../assets/seller.svg';
 import moneySrc from '../../assets/money.svg';
 import limitSrc from '../../assets/limit.svg';
 
-export function ListHeader() {
+export function ListHeader({ isBuy }: { isBuy?: boolean }) {
   return (
     <div className="ListHeader">
       <div className="ListHeader-Seller">
         <img src={sellerSrc} alt="Seller" />
-        Seller
+        {isBuy ? 'Seller' : 'Buyer'}
       </div>
       <div className="ListHeader-Exchange">
         <img src={moneySrc} alt="Price" />

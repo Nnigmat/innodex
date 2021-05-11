@@ -4,10 +4,16 @@ import { ListHeader } from './ListHeader';
 
 import './List.css';
 
-export function List({ children }: { children: ReactNode }) {
+export function List({
+  children,
+  isBuy,
+}: {
+  children: ReactNode;
+  isBuy?: boolean;
+}) {
   return (
     <div className="List">
-      {children && <ListHeader />}
+      {children && <ListHeader isBuy={isBuy} />}
       {children}
     </div>
   );
