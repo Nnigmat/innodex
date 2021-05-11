@@ -107,7 +107,11 @@ export const App: FC = () => {
         <div className="Content">
           <Switch>
             <Route path="/innodex/buy">
-              <BuyPage orders={orders} />
+              <BuyPage
+                orders={orders}
+                completeOrder={orderBookContract?.methods.completeOrder}
+                userId={account}
+              />
             </Route>
             <Route path="/innodex/sell">
               <SellPage orders={orders} />

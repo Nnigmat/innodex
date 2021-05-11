@@ -9,7 +9,19 @@ export type ListItemProps = {
   buyerGet: number;
 };
 
-export function ListItem({ owner, exchange, orderType, originalAmount }: any) {
+export function ListItem({
+  owner,
+  exchange,
+  orderType,
+  originalAmount,
+  id,
+  completeOrder,
+  userId,
+}: any) {
+  const buyItem = (id, amount) => {
+    completeOrder(id, amount).send({ from: userId });
+  };
+
   return (
     <div className="ListItem">
       <div className="ListItem-Seller">
@@ -25,7 +37,7 @@ export function ListItem({ owner, exchange, orderType, originalAmount }: any) {
         <Text>{originalAmount}</Text>
       </div>
       <div className="ListItem-Action">
-        <Button view="action" size="m">
+        <Button view="action" size="m" onClick={() => buyItem(id, 1)}>
           Buy
         </Button>
       </div>
