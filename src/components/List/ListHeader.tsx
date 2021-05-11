@@ -9,13 +9,16 @@ export function ListHeader() {
         <img src={sellerSrc} alt="Seller" />
         Seller
       </div>
-      <div className="ListHeader-Price">
+      <div className="ListHeader-Exchange">
         <img src={moneySrc} alt="Price" />
-        Price
+        Exchange rate
       </div>
-      <div className="ListHeader-Limits">
-        <img src={limitSrc} alt="Limits" />
-        Limits
+      <div className="ListHeader-Coin">
+        <img src={moneySrc} alt="Price" />
+        Coin
+      </div>
+      <div className="ListHeader-Amount">
+        <img src={limitSrc} alt="Amount" />
       </div>
       <div className="ListHeader-Action"></div>
     </div>

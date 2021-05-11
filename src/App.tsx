@@ -27,7 +27,7 @@ export const App: FC = () => {
   const [orderBookContract, setOrderBookContract] = useState<any>();
   const [ACoinBalance, setACoinBalance] = useState<any>(0);
   const [NCoinBalance, setNCoinBalance] = useState<any>(0);
-  const [orders, setOrders] = useState<any>();
+  const [orders, setOrders] = useState<any>([]);
 
   useEffect(() => {
     loadWeb3();
@@ -84,7 +84,9 @@ export const App: FC = () => {
         orderBookData.address
       );
       setOrderBookContract(orderBookContract);
-      const _orders = await orderBookContract.methods.getOrders().call();
+      const _orders = (
+        await orderBookContract.methods.getOrders().call()
+      ).filter((it) => !it.isClosed);
       setOrders(_orders);
     } else {
       window.alert('OrderBook contract not deployed to detected network.');
@@ -108,7 +110,7 @@ export const App: FC = () => {
               <BuyPage orders={orders} />
             </Route>
             <Route path="/innodex/sell">
-              <SellPage orderBook={orderBookContract} />
+              <SellPage orders={orders} />
             </Route>
             <Route path="/innodex" exact>
               <HomePage />
