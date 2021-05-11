@@ -4980,12 +4980,21 @@
         }
       },
       "links": {},
+<<<<<<< HEAD
       "address": "0x0f5047B9AF6A830aAAB6a907f674448120A83899",
       "transactionHash": "0x5e229193ca6a4ed6f84781d791d2756c457fabc2a6c8ce93aec75f07e20477c4"
     }
   },
   "schemaVersion": "3.3.4",
   "updatedAt": "2021-05-11T15:30:07.946Z",
+=======
+      "address": "0xD2429B0a9388492710c64002770f923BfC17c6C6",
+      "transactionHash": "0x4d6d48c489c79d4b7f831c290654062f59bc36c243a5a8b72d8c1d72a358fc74"
+    }
+  },
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-05-11T18:01:13.663Z",
+>>>>>>> d4a889d... add presentation and update wiki
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

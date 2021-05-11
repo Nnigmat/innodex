@@ -1403,12 +1403,21 @@
     "5777": {
       "events": {},
       "links": {},
+<<<<<<< HEAD
       "address": "0xcfF9701B6EE8F6Abe04d2c7c405C803Be8846FA7",
       "transactionHash": "0x5fff580e672d444939b230a011edca07abbc5239f45a4d71b04c13298e19ed5f"
     }
   },
   "schemaVersion": "3.3.4",
   "updatedAt": "2021-05-11T15:30:07.955Z",
+=======
+      "address": "0xDC47dFC7a227273bfAc555B8e3434409decD1E08",
+      "transactionHash": "0x291bc5c317544ba5ff4eec5e4ef0e29f6cefe70b509f02730cc729501b4ae7e2"
+    }
+  },
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-05-11T18:01:13.670Z",
+>>>>>>> d4a889d... add presentation and update wiki
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
