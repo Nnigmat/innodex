@@ -2,6 +2,7 @@ import { FC, useEffect, useState, useContext } from 'react';
 import Web3 from 'web3';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { configureRootTheme } from '@yandex/ui/Theme';
+import { Text } from '@yandex/ui/Text/desktop/bundle';
 import { theme } from '@yandex/ui/Theme/presets/default';
 
 import { Header } from './components/Header';
@@ -23,6 +24,7 @@ configureRootTheme({ theme });
 
 export const App: FC = () => {
   const [account, setAccount] = useState<string>('');
+  const [hasMetamask, setHasMetamask] = useState(true);
   const [ACoinContract, setACoinContract] = useState<any>();
   const [NCoinContract, setNCoinContract] = useState<any>();
   const [orderBookContract, setOrderBookContract] = useState<any>();
@@ -42,13 +44,14 @@ export const App: FC = () => {
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
-      window.alert(
-        'Non-Ethereum browser detected. You should consider trying MetaMask!'
-      );
+      setHasMetamask(false);
     }
   };
 
   const loadBlockchainData = async () => {
+    if (!window.web3) {
+      return;
+    }
     const web3 = window.web3;
 
     const accounts = await web3.eth.getAccounts();
@@ -95,6 +98,37 @@ export const App: FC = () => {
 
     setAccount(accounts[0]);
   };
+
+  if (!hasMetamask) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          height: '100vh',
+        }}
+      >
+        <Text
+          typography="display-s"
+          weight="light"
+          style={{ marginBottom: 10 }}
+        >
+          No metamask installed
+        </Text>
+        <iframe
+          width="1200"
+          height="615"
+          src="https://www.youtube.com/embed/CgXQC4dbGUE"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+    );
+  }
 
   return (
     <UploadContext.Provider value={loadBlockchainData}>
