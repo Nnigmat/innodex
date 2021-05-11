@@ -8,7 +8,7 @@ import { NavItem } from './NavItem';
 
 import './Header.css';
 
-export function Header() {
+export function Header(props) {
   const location = useLocation();
 
   return (
@@ -26,6 +26,7 @@ export function Header() {
         >
           Sell
         </NavItem>
+        {props.account}
       </HeaderNav>
     </HeaderInner>
   );
