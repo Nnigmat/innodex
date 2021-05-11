@@ -31,7 +31,7 @@ export function ListItem({
         <Text>{exchange}</Text>
       </div>
       <div className="ListItem-Coin">
-        <Text>{orderType == 1 ? 'N' : 'A'}</Text>
+        <Text>{orderType === 1 ? 'NCN' : 'ACN'}</Text>
       </div>
       <div className="ListItem-Amount">
         <Text>{originalAmount}</Text>

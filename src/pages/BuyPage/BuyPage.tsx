@@ -6,10 +6,7 @@ import { useTitle } from '../../hooks/useTitle';
 
 import './BuyPage.css';
 
-export function BuyPage(props) {
-  const { orders, completeOrder, userId } = props;
-
-  console.log(orders.filter((it) => it.orderType == 1));
+export function BuyPage({ orders, completeOrder, userId }) {
   useTitle('Buy - InnoDEX');
 
   return (

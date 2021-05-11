@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useContext } from 'react';
+import Web3 from 'web3';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { configureRootTheme } from '@yandex/ui/Theme';
 import { theme } from '@yandex/ui/Theme/presets/default';
@@ -10,11 +11,11 @@ import { BuyPage } from './pages/BuyPage';
 import { SellPage } from './pages/SellPage';
 import { HomePage } from './pages/HomePage';
 
-import Web3 from 'web3';
-
 import ACoin from './abis/ACoin.json';
 import NCoin from './abis/NCoin.json';
 import OrderBook from './abis/OrderBook.json';
+
+import { UploadContext } from './context';
 
 import './App.css';
 
@@ -96,33 +97,39 @@ export const App: FC = () => {
   };
 
   return (
-    <div className="App">
-      <Router>
-        <Header
-          account={account}
-          aCoinBalance={ACoinBalance}
-          nCoinBalance={NCoinBalance}
-          orderBook={orderBookContract}
-        />
-        <div className="Content">
-          <Switch>
-            <Route path="/innodex/buy">
-              <BuyPage
-                orders={orders}
-                completeOrder={orderBookContract?.methods.completeOrder}
-                userId={account}
-              />
-            </Route>
-            <Route path="/innodex/sell">
-              <SellPage orders={orders} />
-            </Route>
-            <Route path="/innodex" exact>
-              <HomePage />
-            </Route>
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
-    </div>
+    <UploadContext.Provider value={loadBlockchainData}>
+      <div className="App">
+        <Router>
+          <Header
+            account={account}
+            aCoinBalance={ACoinBalance}
+            nCoinBalance={NCoinBalance}
+            orderBook={orderBookContract}
+          />
+          <div className="Content">
+            <Switch>
+              <Route path="/innodex/buy">
+                <BuyPage
+                  orders={orders}
+                  completeOrder={orderBookContract?.methods.completeOrder}
+                  userId={account}
+                />
+              </Route>
+              <Route path="/innodex/sell">
+                <SellPage
+                  orders={orders}
+                  completeOrder={orderBookContract?.methods.completeOrder}
+                  userId={account}
+                />
+              </Route>
+              <Route path="/innodex" exact>
+                <HomePage />
+              </Route>
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
+      </div>
+    </UploadContext.Provider>
   );
 };

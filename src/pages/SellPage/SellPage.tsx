@@ -6,15 +6,13 @@ import { useTitle } from '../../hooks/useTitle';
 
 import './SellPage.css';
 
-export function SellPage(props) {
-  const { orders } = props;
-
+export function SellPage({ orders, completeOrder, userId }) {
   useTitle('Sell - InnoDEX');
 
   return (
     <div className="SellPage">
       <Text typography="display-s" weight="light" className="SellPage-Title">
-        Sell cryptocurrencies online
+        Buy cryptocurrencies online
       </Text>
 
       <br />
@@ -25,7 +23,11 @@ export function SellPage(props) {
           {orders
             .filter((it) => it.orderType == 0)
             .map((item) => (
-              <ListItem {...item} />
+              <ListItem
+                {...item}
+                completeOrder={completeOrder}
+                userId={userId}
+              />
             ))}
         </List>
       ) : (

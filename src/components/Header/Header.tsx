@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import web3 from 'web3';
 import { useLocation } from 'react-router-dom';
 
 import { Header as HeaderInner, HeaderNav } from '@yandex/ui/Header/desktop';
+import { Text } from '@yandex/ui/Text';
 import { compose } from '@bem-react/core';
-import {
-  Modal as ModalDesktop,
-  withThemeNormal,
-} from '@yandex/ui/Modal/desktop';
+import { Modal } from '@yandex/ui/Modal/desktop/bundle';
 import { withZIndex } from '@yandex/ui/withZIndex';
 import { Formik, Field, Form, FormikHelpers } from 'formik';
 
 import { Logo } from './Logo';
 import { NavItem } from './NavItem';
+import { HeaderBalance } from './HeaderBalance';
+
+import { UploadContext } from '../../context';
 
 import './Header.css';
-import { Button } from '@yandex/ui/Button';
+import { Button } from '@yandex/ui/Button/desktop/bundle';
 
-const Modal = compose(withThemeNormal, withZIndex)(ModalDesktop);
 enum Coin {
   A,
   N,
@@ -32,13 +33,23 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export function Header(props) {
-  const { aCoinBalance, nCoinBalance, account, orderBook } = props;
+export function Header({ aCoinBalance, nCoinBalance, account, orderBook }) {
   const location = useLocation();
+  const upload = useContext(UploadContext);
+
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
-    <HeaderInner logo={<Logo />}>
+    <HeaderInner
+      logo={<Logo />}
+      actions={
+        <HeaderBalance
+          aCoinBalance={String(aCoinBalance)}
+          nCoinBalance={String(nCoinBalance)}
+          account={account}
+        />
+      }
+    >
       <HeaderNav>
         <NavItem
           to="/innodex/buy"
@@ -52,17 +63,18 @@ export function Header(props) {
         >
           Sell
         </NavItem>
-        <Button onClick={() => setModalVisible(true)}>Create order</Button>
-        {'A Coin:' + aCoinBalance / 10e18}
-        {' N Coin:' + nCoinBalance / 10e18}
-        {' Address' + account}
+        <Button
+          onClick={() => setModalVisible(true)}
+          className="Link YandexHeader-NavLink"
+        >
+          Create order
+        </Button>
       </HeaderNav>
 
       <Modal
         theme="normal"
         onClose={() => setModalVisible(false)}
         visible={modalVisible}
-        zIndexGroupLevel={20}
       >
         <Formik
           initialValues={{
@@ -78,36 +90,69 @@ export function Header(props) {
                   getRandomInt(10, 10e12),
                   values.orderType,
                   values.exRate,
-                  values.amount,
+                  web3.utils.toWei(String(values.amount), 'ether'),
                   values.coin,
-                  values.coin == Coin.A ? Coin.N : Coin.A
+                  values.coin === Coin.A ? Coin.N : Coin.A
                 )
                 .send({ from: account });
+              await upload();
+              setModalVisible(false);
             }
           }}
         >
           {({ values }) => (
-            <Form style={{ display: 'flex', flexDirection: 'column' }}>
-              <label htmlFor="orderType">Order type</label>
-              <Field as="select" name="orderType">
-                <option value={OrderType.Sell}>Sell</option>
-                <option value={OrderType.Buy}>Buy</option>
-              </Field>
+            <>
+              <div className="Form-Header">Create order</div>
+              <Form
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  width: 500,
+                }}
+                className="Form"
+              >
+                <label htmlFor="orderType" className="Form-Label">
+                  Order type
+                </label>
+                <Field as="select" name="orderType" className="Form-Field">
+                  <option value={OrderType.Sell}>Sell</option>
+                  <option value={OrderType.Buy}>Buy</option>
+                </Field>
 
-              <label htmlFor="exRate">Exchange rate</label>
-              <Field id="exRate" name="exRate" placeholder={1} />
+                <label htmlFor="exRate" className="Form-Label">
+                  <Text>Exchange rate</Text>
+                </label>
+                <Field
+                  id="exRate"
+                  name="exRate"
+                  placeholder={1}
+                  className="Form-Field"
+                />
 
-              <label htmlFor="amount">Amount</label>
-              <Field id="amount" name="amount" placeholder={1} />
+                <label htmlFor="amount" className="Form-Label">
+                  <Text>Amount</Text>
+                </label>
+                <Field
+                  id="amount"
+                  name="amount"
+                  placeholder={1}
+                  className="Form-Field"
+                />
 
-              <label htmlFor="exRate">Coin type</label>
-              <Field as="select" name="coin">
-                <option value={Coin.A}>A</option>
-                <option value={Coin.N}>N</option>
-              </Field>
+                <label htmlFor="exRate" className="Form-Label">
+                  <Text>Coin type</Text>
+                </label>
+                <Field as="select" name="coin" className="Form-Field">
+                  <option value={Coin.A}>ACN</option>
+                  <option value={Coin.N}>NCN</option>
+                </Field>
 
-              <Button type="submit">Submit</Button>
-            </Form>
+                <Button type="submit" view="action" size="m">
+                  Submit
+                </Button>
+              </Form>
+            </>
           )}
         </Formik>
       </Modal>
